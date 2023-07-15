@@ -104,6 +104,7 @@ Material:
     - Vector1_995B999E: 0.005
     - _AlphaClip: 0
     - _Blend: 0
+    - _BlendOp: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0

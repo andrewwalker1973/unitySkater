@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Skater/Scene/GameScene.unity
+    guid: d5391112050695147a633058e27ad4d2
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4f2b16fc69f17b0418184c3f22ff698a,
       type: 2}

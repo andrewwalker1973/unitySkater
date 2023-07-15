@@ -18,18 +18,24 @@ public class PlayerMotor : MonoBehaviour
 
 
     public CharacterController controller;
+    public Animator anim;
     private BaseState state;
+    private bool isPaused;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
         state = GetComponent<RunningState>();
         state.Construct();
+
+        isPaused = true;
     }
 
     private void Update()
     {
-        UpdateMotor();
+        if(!isPaused)
+            UpdateMotor();
     }
 
     private void UpdateMotor()
@@ -44,6 +50,10 @@ public class PlayerMotor : MonoBehaviour
 
         // are we trying to change state
         state.Transition();
+
+        // feed animator values
+        anim?.SetBool("IsGrounded", isGrounded);
+        anim?.SetFloat("Speed", Mathf.Abs(moveVector.z));
 
         // Move Player
         controller.Move(moveVector * Time.deltaTime);
@@ -84,6 +94,40 @@ public class PlayerMotor : MonoBehaviour
         state.Destruct();
         state = s;
         state.Construct();
+    }
+
+    public void ApplyGravity()
+    {
+        verticalVelocity -= gravity * Time.deltaTime;
+        if (verticalVelocity < -terminalVelocity)
+            verticalVelocity = -terminalVelocity;
+    }
+
+    public void PausePlayer()
+    {
+        isPaused = true;
+    }
+
+    public void ResumePlayer()
+    {
+        isPaused = false;
+    }
+
+    public void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        string hitLayerName = LayerMask.LayerToName(hit.gameObject.layer);
+
+        if (hitLayerName == "Death")
+            ChangeState(GetComponent<DeathState>());
+    }
+
+
+    public void RespawnPlayer()
+    {
+
+           ChangeState(GetComponent<RespawnState>());
+        GameManager.Instance.ChangeCamera(GameManager.GameCamera.Respawn);
+        
     }
 
 }

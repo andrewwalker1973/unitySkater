@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 857471939591406020}
   - component: {fileID: 973040619247817404}
   - component: {fileID: 4564844948983470182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blocker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4166776900720860593}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.2986643, y: 0.00080178387, z: 9.166298}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -97,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.8425996, y: 1.7238493, z: 0.19607559}
-  m_Center: {x: 0, y: 2.324409, z: -0.000000074505806}
+  m_Size: {x: 2.8426, y: 1.9817622, z: 0.19607559}
+  m_Center: {x: 0, y: 2.195454, z: -0.000000074505806}
 --- !u!65 &973040619247817404
 BoxCollider:
   m_ObjectHideFlags: 0

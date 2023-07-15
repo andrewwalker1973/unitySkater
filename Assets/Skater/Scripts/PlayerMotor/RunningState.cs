@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class RunningState : BaseState
 {
+
+    public override void Construct()
+    {
+        motor.verticalVelocity = 0.0f;
+    }
     public override Vector3 ProcessMotion()
     {
         Vector3 m = Vector3.zero;
@@ -16,7 +21,7 @@ public class RunningState : BaseState
 
       public override void Transition()
       {
-          if (InputManager.Instance.SwipeLeft)
+          if (InputManager.Instance.SwipeLeft )
           {
               motor.ChangeLane(-1);
           }
@@ -28,14 +33,17 @@ public class RunningState : BaseState
 
           if (InputManager.Instance.SwipeUp && motor.isGrounded)
           {
-              // motot.ChangeState(GetComponent<JumpingState>());
+               motor.ChangeState(GetComponent<JumpingState>());
           }
 
-          if (InputManager.Instance.SwipeDown)
+          if (InputManager.Instance.SwipeDown )
           {
-
+            motor.ChangeState(GetComponent<SlidingState>());
           }
-    
+
+
+        if (!motor.isGrounded)
+            motor.ChangeState(GetComponent<FallingState>());
      }
 
 
