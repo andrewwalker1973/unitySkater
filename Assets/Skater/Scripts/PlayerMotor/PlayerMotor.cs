@@ -103,6 +103,8 @@ public class PlayerMotor : MonoBehaviour
             verticalVelocity = -terminalVelocity;
     }
 
+    
+
     public void PausePlayer()
     {
         isPaused = true;

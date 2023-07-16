@@ -27,6 +27,9 @@ public class FallingState : BaseState
     {
         if (motor.isGrounded)
             motor.ChangeState(GetComponent<RunningState>());
+
+
+        
     }
 
 

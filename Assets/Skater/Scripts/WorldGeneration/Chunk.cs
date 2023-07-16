@@ -7,18 +7,19 @@ public class Chunk : MonoBehaviour
     public float chunkLength;
 
 
-    public void ShowChunk()
+    public Chunk ShowChunk()
     {
+        transform.gameObject.BroadcastMessage("OnShowChunk", SendMessageOptions.DontRequireReceiver);
         gameObject.SetActive(true);
-      //  return this;
+       return this;
     }
 
 
-    public void HideChunk()
+    public Chunk HideChunk()
     {
 
         gameObject.SetActive(false);
-       // return this;
+       return this;
     }
 
 }
