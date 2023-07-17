@@ -132,4 +132,14 @@ public class PlayerMotor : MonoBehaviour
         
     }
 
+    public void ResetPlayer()
+    {
+        currentLane = 0;
+        transform.position = Vector3.zero;
+        anim?.SetTrigger("Idle");
+        PausePlayer();
+        ChangeState(GetComponent<RunningState>());
+    }
+
+
 }

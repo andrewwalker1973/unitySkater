@@ -29,11 +29,23 @@ public class GameStateDeath : GameState
         completionCircle.gameObject.SetActive(true);
         ReviveButton.gameObject.SetActive(true);
 
+        // before saving set high score if needed.
+        if (SaveManager.Instance.save.Highscore < (int)GameStats.Instance.score)
+        {
+            SaveManager.Instance.save.Highscore = (int)GameStats.Instance.score;
+            currentScore.color = Color.green;
+        }
+        else
+            currentScore.color = Color.white;
 
-        highScore.text = "Highscore : TBD";
-        currentScore.text = "12345";
-        fishTotal.text = "Total : TBD";
-        currentFish.text = "20"; 
+        SaveManager.Instance.save.Fish += GameStats.Instance.fishCollectedThisSession;
+
+        SaveManager.Instance.SaveGame();
+
+        highScore.text = "Highscore : " + SaveManager.Instance.save.Highscore; ;
+        currentScore.text = GameStats.Instance.ScoreToText();
+        fishTotal.text = "Total Fish :" + SaveManager.Instance.save.Fish;
+        currentFish.text = GameStats.Instance.FishToText();
 
     }
 
@@ -69,5 +81,12 @@ public class GameStateDeath : GameState
     public void ToMenu()
     {
         brain.ChangeState(GetComponent<GameStateInit>());
+        GameManager.Instance.motor.ResetPlayer();
+        GameManager.Instance.worldGeneration.ResetWorld();
+        GameManager.Instance.sceneChunkGeneration.ResetWorld();
+
+
+
+        
     }
 }

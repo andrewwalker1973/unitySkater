@@ -12,8 +12,8 @@ public class GameStateInit : GameState
     {
         GameManager.Instance.ChangeCamera(GameManager.GameCamera.Init);
 
-        highscoreText.text = "Highscore : " + "TBD";
-        fishcountText.text = "Fish : " + "TBD";
+        highscoreText.text = "Highscore: " + SaveManager.Instance.save.Highscore.ToString();
+        fishcountText.text = "Fish: " + SaveManager.Instance.save.Fish.ToString();
 
 
         menuUI.SetActive(true);
@@ -36,6 +36,6 @@ public class GameStateInit : GameState
 
     public void OnShopClick()
     {
-       // brain.ChangeState(GetComponent<GameStateShop>());
+        brain.ChangeState(GetComponent<GameStateShop>());
     }
 }
