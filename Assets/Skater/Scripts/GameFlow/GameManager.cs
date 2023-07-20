@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public enum GameCamera
@@ -16,19 +17,24 @@ public class GameManager : MonoBehaviour
     public GameObject[] cameras;
     public WorldGeneration worldGeneration;
     public SceneChunkGeneration sceneChunkGeneration;
-
+    
 
 
     private GameState state;
+    
+
+
+    
 
     private void Start()
     {
         instance = this;
-        state = GetComponent<GameStateInit>();
+    state = GetComponent<GameStateInit>();
         state.Construct();
 
     }
 
+    
     private void Update()
     {
         state.UpdateState();
@@ -50,5 +56,5 @@ public class GameManager : MonoBehaviour
         cameras[(int)c].SetActive(true);
     }
 
-
+    
 }

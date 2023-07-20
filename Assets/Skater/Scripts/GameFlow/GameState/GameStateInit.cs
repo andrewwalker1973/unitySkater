@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
 
 public class GameStateInit : GameState
 {
@@ -36,6 +38,33 @@ public class GameStateInit : GameState
 
     public void OnShopClick()
     {
+        
         brain.ChangeState(GetComponent<GameStateShop>());
     }
+
+
+    public void OnAchievmentClick()
+    {
+        if (GPGS.Instance.isConnectedtoGooglePlay)
+        {
+            Social.ShowAchievementsUI();
+        }
+        else
+        {
+            GPGS.Instance.TriggerManualSignIn();
+        }
+    }
+
+    public void OnLeaderboardClick()
+    {
+        if (GPGS.Instance.isConnectedtoGooglePlay)
+        {
+            Social.ShowLeaderboardUI();
+        }
+        else
+        {
+            GPGS.Instance.TriggerManualSignIn();
+        }
+    }
+  
 }

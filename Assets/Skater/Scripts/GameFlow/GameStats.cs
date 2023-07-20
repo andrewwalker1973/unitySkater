@@ -28,7 +28,8 @@ public class GameStats : MonoBehaviour
 
     private void Awake()
     {
-        instance = this; 
+        instance = this;
+        OnCollectFish += SendAchievmentProgress;
     }
     public void Update()
     {
@@ -50,6 +51,7 @@ public class GameStats : MonoBehaviour
     {
         fishCollectedThisSession++;
         OnCollectFish?.Invoke(fishCollectedThisSession);
+
     }
 
 
@@ -70,5 +72,20 @@ public class GameStats : MonoBehaviour
     public string FishToText()
     {
         return fishCollectedThisSession.ToString("000");
+    }
+
+    private void SendAchievmentProgress(int fishCount)
+    {
+        switch (fishCount)
+        {
+            case 10:
+                Social.ReportProgress(GPGSIds.achievement_collect_10_fish, 100.0f, null);
+                break;
+            case 25:
+                Social.ReportProgress(GPGSIds.achievement_collect_25_fish, 100.0f, null);
+                break;
+            default:
+                break;
+        }
     }
 }

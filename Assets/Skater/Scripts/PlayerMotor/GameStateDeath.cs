@@ -34,6 +34,15 @@ public class GameStateDeath : GameState
         {
             SaveManager.Instance.save.Highscore = (int)GameStats.Instance.score;
             currentScore.color = Color.green;
+
+            if (GPGS.Instance.isConnectedtoGooglePlay)
+            {
+                Social.ReportScore(SaveManager.Instance.save.Highscore, GPGSIds.leaderboard_top_score, (success) =>
+                  {
+                      if(!success) Debug.Log("Unable to post high score");
+                  });
+            }
+
         }
         else
             currentScore.color = Color.white;
@@ -85,8 +94,11 @@ public class GameStateDeath : GameState
         GameManager.Instance.worldGeneration.ResetWorld();
         GameManager.Instance.sceneChunkGeneration.ResetWorld();
 
+               
+    }
 
-
-        
+    public void PlayRewardAdd()
+    {
+        AdsManager.Instance.ShowRewardedAd();
     }
 }

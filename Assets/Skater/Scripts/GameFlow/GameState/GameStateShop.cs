@@ -107,5 +107,7 @@ public class GameStateShop : GameState
     public void OnHomeClick()
     {
         brain.ChangeState(GetComponent<GameStateInit>());
+        AdsManager.Instance.DestroyRewardAd();
+        AdsManager.Instance.LoadRewardedAd();
     }
 }
