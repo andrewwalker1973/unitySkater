@@ -9,6 +9,7 @@ public class GameStateInit : GameState
     public GameObject menuUI;
     [SerializeField] private TextMeshProUGUI highscoreText;
     [SerializeField] private TextMeshProUGUI fishcountText;
+    [SerializeField] private AudioClip menuLoopMusic;
 
     public override void Construct()
     {
@@ -19,6 +20,8 @@ public class GameStateInit : GameState
 
 
         menuUI.SetActive(true);
+
+        AudioManager.Instance.PlayMusicWithCrossFade(menuLoopMusic, 0.5f);
 
     }
 

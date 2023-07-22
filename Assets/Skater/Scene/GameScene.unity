@@ -322,6 +322,7 @@ MonoBehaviour:
   terminalVelocity: 20
   controller: {fileID: 0}
   anim: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 5f4be879cc749094ea9e79eb157c80d4, type: 3}
 --- !u!143 &55276841
 CharacterController:
   m_ObjectHideFlags: 0
@@ -690,6 +691,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 166265600}
   m_CullTransparentMesh: 1
+--- !u!1 &166320672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 166320674}
+  - component: {fileID: 166320673}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &166320673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166320672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0b44afcb25f0d4fb02ec87947a4dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicVolume: 0.5
+--- !u!4 &166320674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166320672}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &167381069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,6 +2486,7 @@ MonoBehaviour:
   menuUI: {fileID: 1917017293}
   highscoreText: {fileID: 1864097883}
   fishcountText: {fileID: 184419804}
+  menuLoopMusic: {fileID: 8300000, guid: 9ba016df953a5df4f82eb99e9083f3e5, type: 3}
 --- !u!114 &700350735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,6 +2502,7 @@ MonoBehaviour:
   gameUI: {fileID: 711473806}
   fishcount: {fileID: 738696088}
   scorecount: {fileID: 861426005}
+  gameloopMusic: {fileID: 8300000, guid: 3c07cfa2cc9f49744b53677491e10369, type: 3}
 --- !u!114 &700350736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,6 +2541,7 @@ MonoBehaviour:
   totalFish: 0
   fishCollectedThisSession: 0
   pointsPerFish: 10
+  fishCollectSFX: {fileID: 8300000, guid: 3852e69d4989c574586ca797e93f1eee, type: 3}
 --- !u!114 &700350738
 MonoBehaviour:
   m_ObjectHideFlags: 0
